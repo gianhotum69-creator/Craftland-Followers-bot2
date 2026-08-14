@@ -6,7 +6,7 @@ app = Flask(__name__)
 def home():
     return jsonify({
         "success": True,
-        "message": "Vercel Python API is working"
+        "message": "Craftland Followers Bot API"
     })
 
 @app.route("/status", methods=["GET"])
@@ -15,3 +15,6 @@ def status():
         "success": True,
         "status": "online"
     })
+
+if __name__ == "__main__":
+    app.run()
