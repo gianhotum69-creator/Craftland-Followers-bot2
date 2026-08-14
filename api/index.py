@@ -16,8 +16,14 @@ def status():
         "status": "online"
     })
 
-@app.route("/send", methods=["POST"])
+@app.route("/send", methods=["GET", "POST"])
 def send():
+    if request.method == "GET":
+        return jsonify({
+            "success": True,
+            "message": "Send endpoint is online. Use POST to submit a request."
+        })
+
     data = request.get_json(silent=True) or {}
 
     uid = data.get("uid")
